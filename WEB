@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Honda Vario / Click</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- GOOGLE FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #0f0f0f;
+  color: #fff;
+}
+
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.9);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  z-index: 1000;
+}
+
+.logo {
+  color: #e10600;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.navbar a:hover {
+  color: #e10600;
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  background: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.9)),
+              url("https://upload.wikimedia.org/wikipedia/commons/2/23/Honda_Vario_160.jpg")
+              center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: 60px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  letter-spacing: 2px;
+}
+
+.hero p {
+  margin: 15px 0;
+  color: #ccc;
+}
+
+.hero button {
+  padding: 12px 30px;
+  background: #e10600;
+  border: none;
+  border-radius: 30px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.hero button:hover {
+  background: #ff1a1a;
+}
+
+/* FEATURES */
+.features {
+  padding: 70px 20px;
+  text-align: center;
+}
+
+.features h2 {
+  margin-bottom: 40px;
+}
+
+.feature-grid {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: #1a1a1a;
+  padding: 25px;
+  width: 260px;
+  border-radius: 12px;
+  transition: transform .3s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
+
+.card h3 {
+  color: #e10600;
+  margin-bottom: 10px;
+}
+
+/* GALLERY */
+.gallery {
+  padding: 70px 20px;
+  text-align: center;
+}
+
+.slider {
+  max-width: 700px;
+  margin: 30px auto;
+  position: relative;
+}
+
+.slide {
+  display: none;
+  width: 100%;
+  border-radius: 15px;
+}
+
+.slide.active {
+  display: block;
+}
+
+/* FOOTER */
+footer {
+  background: #111;
+  padding: 20px;
+  text-align: center;
+  color: #777;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .navbar ul {
+    gap: 12px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav class="navbar">
+  <div class="logo">HONDA</div>
+  <ul>
+    <li><a href="#">HOME</a></li>
+    <li><a href="#features">FEATURES</a></li>
+    <li><a href="#gallery">GALLERY</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div>
+    <h1>HONDA VARIO / CLICK</h1>
+    <p>DESIGNED FOR THE STREETS. BUILT FOR YOU.</p>
+    <button onclick="scrollToFeatures()">EXPLORE FEATURES</button>
+  </div>
+</header>
+
+<!-- FEATURES -->
+<section class="features" id="features">
+  <h2>WHY HONDA VARIO / CLICK?</h2>
+
+  <div class="feature-grid">
+    <div class="card">
+      <h3>⚡ PERFORMANCE</h3>
+      <p>Fuel-efficient engine with smooth and responsive acceleration.</p>
+    </div>
+    <div class="card">
+      <h3>💡 SMART TECH</h3>
+      <p>Smart key system, LED lighting, and digital dashboard.</p>
+    </div>
+    <div class="card">
+      <h3>🏙️ URBAN STYLE</h3>
+      <p>Sporty, aggressive design perfect for city riding.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <h2>GALLERY</h2>
+  <div class="slider">
+    <img class="slide active" src="https://upload.wikimedia.org/wikipedia/commons/2/23/Honda_Vario_160.jpg">
+    <img class="slide" src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Honda_Click_160.jpg">
+    <img class="slide" src="https://upload.wikimedia.org/wikipedia/commons/0/0a/Honda_Vario_125.jpg">
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 HONDA VARIO / CLICK SHOWCASE</p>
+</footer>
+
+<script>
+function scrollToFeatures() {
+  document.getElementById("features").scrollIntoView({ behavior: "smooth" });
+}
+
+let slides = document.querySelectorAll(".slide");
+let index = 0;
+
+setInterval(() => {
+  slides[index].classList.remove("active");
+  index = (index + 1) % slides.length;
+  slides[index].classList.add("active");
+}, 3000);
+</script>
+
+</body>
+</html>
